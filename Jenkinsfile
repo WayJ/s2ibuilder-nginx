@@ -24,20 +24,16 @@ pipeline {
     stage('build') {
       steps {
         container ('nodejs') {
-          steps {
-            sh 'make build .'
-          }
+          sh 'make build .'
         }
       }
     }
     stage('builld & push') {
       steps {
         container ('nodejs') {
-          steps {
-            withCredentials([usernamePassword(credentialsId : 'harborid' ,passwordVariable : 'DOCKER_PASSWORD' ,usernameVariable : 'DOCKER_USERNAME' ,)]) {
-              sh 'echo "$DOCKER_PASSWORD" | docker login $REGISTRY -u "$DOCKER_USERNAME" --password-stdin'
-              sh 'docker push $REGISTRY/$IMAGE_NAMESPACE/$APP_NAME:$TAG_NAME'
-            }
+          withCredentials([usernamePassword(credentialsId : 'harborid' ,passwordVariable : 'DOCKER_PASSWORD' ,usernameVariable : 'DOCKER_USERNAME' ,)]) {
+            sh 'echo "$DOCKER_PASSWORD" | docker login $REGISTRY -u "$DOCKER_USERNAME" --password-stdin'
+            sh 'docker push $REGISTRY/$IMAGE_NAMESPACE/$APP_NAME:$TAG_NAME'
           }
         }
       }
