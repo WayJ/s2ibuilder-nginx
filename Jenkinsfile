@@ -1,5 +1,9 @@
 pipeline {
-  agent any
+  agent{
+    node {
+      label 'maven'
+    }
+  }
 
   environment {
     DOCKER_CREDENTIAL_ID = 'dockerhub-id'
