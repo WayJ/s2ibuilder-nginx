@@ -21,11 +21,6 @@ pipeline {
                 checkout(scm)
             }
         }
-    #stage('git clone') {
-    #  steps {
-    #    git(url: 'https://github.com/WayJ/s2ibuilder-nginx.git', branch: 'master', changelog: true, poll: false)
-    #  }
-    #}
     stage('env check') {
       steps {
         container('nodejs') {
