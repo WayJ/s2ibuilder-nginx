@@ -1,4 +1,4 @@
-IMAGE_NAME = harbor.wayj.online:8443/tqmobiledev/s2ibuilder-nginx-centos7-base
+IMAGE_NAME = harbor.wayj.online/tqmobiledev/s2ibuilder-nginx-centos7-base
 
 .PHONY: build
 build:
