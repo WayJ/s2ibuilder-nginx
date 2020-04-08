@@ -6,11 +6,11 @@ pipeline {
 
   }
   stages {
-    stage('git clone') {
-      steps {
-        git(url: 'http://jiangwei@gitlab.hztianque.com/sd-mobile/common/TQPrismEnv.git', credentialsId: 'gitlabid', branch: 'master', changelog: true, poll: false)
-      }
-    }
+    stage ('checkout scm') {
+            steps {
+                checkout(scm)
+            }
+        }
     stage('env check') {
       steps {
         container('nodejs') {
