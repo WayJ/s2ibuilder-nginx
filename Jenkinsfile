@@ -8,7 +8,7 @@ pipeline {
   environment {
     DOCKER_CREDENTIAL_ID = 'dockerhub-id'
     GITHUB_CREDENTIAL_ID = 'github-id'
-    REGISTRY = 'harbor.wayj.online'
+    REGISTRY = 'harbor.wayj.online:8443'
     IMAGE_NAMESPACE = 'tqmobiledev'
     GITHUB_ACCOUNT = 'WayJ'
     TAG_NAME = 'latest'

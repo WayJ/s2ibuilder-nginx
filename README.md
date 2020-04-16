@@ -80,3 +80,10 @@ s2i build --incremental=true test/test-app nginx-centos7 nginx-app
 ---> Building and installing application from source...
 ```
 This will run the *save-artifacts* script which includes the custom code to backup the currently running application source, rebuild the application image, and then re-deploy the previously saved source using the *assemble* script.
+
+
+
+### apply to kubectl
+```
+kubectl apply -f s2ibuilder-nginx.yaml
+```
